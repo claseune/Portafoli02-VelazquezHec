@@ -1,0 +1,28 @@
+<ion-header>
+  <ion-navbar>
+    <ion-title>
+     Toma tu Memaso Portatil
+    </ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content padding>
+  Recibe mas de 500 k Suscriptores
+  <p>
+    Creador <a href="http://www.facebook.com/hector.vlz"></a> 
+  </p>
+
+  <!--La foto-->
+<ion-item *ngIf="Preview">
+  <img [src]="Preview">
+  </ion-item>
+  
+    <button ion-button="" color="light" block="" (click)="showCam()" icon-right="">Cámara
+     <ion-icon name="log-in"></ion-icon>
+      </button>
+
+      <button ion-button="" color="light" block="" (click)="goGPS()" icon-right="">GPS
+     <ion-icon name="map"></ion-icon>
+      </button>
+
+</ion-content>
