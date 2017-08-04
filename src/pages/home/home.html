@@ -1,7 +1,7 @@
 <ion-header>
   <ion-navbar>
     <ion-title>
-     Toma tu Memaso Portatil
+      Toma tu Memaso Portatil
     </ion-title>
   </ion-navbar>
 </ion-header>
@@ -9,20 +9,36 @@
 <ion-content padding>
   Recibe mas de 500 k Suscriptores
   <p>
-    Creador <a href="http://www.facebook.com/hector.vlz"></a> 
+    Creador <a href="http://www.facebook.com/hector.vlz"></a>
   </p>
 
   <!--La foto-->
-<ion-item *ngIf="Preview">
-  <img [src]="Preview">
+  <ion-item *ngIf="Preview">
+    <img [src]="Preview">
   </ion-item>
-  
-    <button ion-button="" color="light" block="" (click)="showCam()" icon-right="">Cámara
+
+  <button ion-button="" color="light" block="" (click)="showCam()" icon-right="">Cámara
      <ion-icon name="log-in"></ion-icon>
       </button>
 
-      <button ion-button="" color="light" block="" (click)="goGPS()" icon-right="">GPS
+  <button ion-button="" color="light" block="" (click)="goGPS()" icon-right="">GPS
      <ion-icon name="map"></ion-icon>
       </button>
+    <button ion-button="" color="light" block="" (click)="goblue()" icon-right="">bluetooth
+     <ion-icon name="bluetooth"></ion-icon>
+      </button>
+    <button ion-button="" color="light" block="" (click)="goColor()" icon-right="">Color Picker
+     <ion-icon name="map"></ion-icon>
+      </button>
+
+  <ion-list>
+    <ion-card *ngFor="let picture of datapicture|async">
+      <img [src]="picture.url">
+      <div class="card-title">{{picture.title}}</div>
+      <div class="subtitle">{{picture.subtitle}}</div>
+    </ion-card>
+  </ion-list>
+
+  
 
 </ion-content>

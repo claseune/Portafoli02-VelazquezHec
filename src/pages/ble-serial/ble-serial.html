@@ -1,0 +1,51 @@
+<!--
+  Generated template for the BleSerialPage page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-header>
+
+  <ion-navbar>
+    <ion-toolbar>
+    <ion-navbar>
+      <ion-title>Bluetooth Serial</ion-title>
+    </ion-navbar>
+    <ion-buttons end>
+      <button ion-button icon-only color="royal" (click)="discoverUnpairedDevices()">
+        <ion-icon name="refresh"></ion-icon>
+      </button>
+    </ion-buttons>
+  </ion-toolbar>
+  </ion-navbar>
+
+</ion-header>
+
+
+<ion-content padding>
+ 
+    <ion-item-group>
+       <ion-item-divider color="light">Dispositivos vinculados</ion-item-divider>
+     <button ion-item *ngFor="let PairDevice of devices" (click)="connectToDevice(PairDevice.address)">
+        <h2>{{PairDevice.name}}</h2>
+        <p>{{PairDevice.address}}</p>
+      </button>
+    </ion-item-group>
+
+     <ion-item-group *ngIf="unpaireds">
+    <ion-item-divider color="light">Dispositivos econtradados</ion-item-divider>
+    <button ion-item *ngFor="let UnpairDevice of unpaireds" (click)="connectToDevice(UnpairDevice.address)">
+      <h2>{{UnpairDevice.name}}</h2>
+      <p>{{UnpairDevice.address}}</p>
+    </button>
+  </ion-item-group>
+
+   <input disabled="true" class="myInput"  [cpToggle]="true" [cpWidth]="'auto'" [(colorPicker)]="color" [style.background]="color" [value]="color" [cpPosition]="'bottom'" [cpOutputFormat]="'rgba'" (colorPickerChange)="data=onItemChange($event);color=$event" />
+   <button (click)="setColor()" ion-button icon-right block>
+    Set color
+    <ion-icon name="sunny"></ion-icon>
+  </button>
+ 
+
+
+</ion-content>

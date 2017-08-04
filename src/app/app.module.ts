@@ -17,12 +17,19 @@ import { AngularFireAuthModule } from 'angularfire2/auth';
 import { GpsPage } from '../pages/gps/gps';
 import{GoogleMaps} from '@ionic-native/google-maps';
 import { Geolocation } from '@ionic-native/geolocation';
+import { LocalNotifications } from '@ionic-native/local-notifications';
+import { StartPage } from '../pages/start/start';
+import { BluetoothSerial } from '@ionic-native/bluetooth-serial';
+import { BleSerialPage } from '../pages/ble-serial/ble-serial';
+import { ColorPickPage } from '../pages/color-pick/color-pick';
+import { ColorPickerModule } from 'ngx-color-picker';
+
 export const config = {
   apiKey: "AIzaSyDbvMjiTTKHLeoZwRcj2KDz5HFPAZQWRR8",
   authDomain: "camara-377f2.firebaseapp.com",
   databaseURL: "https://camara-377f2.firebaseio.com",
   projectId: "camara-377f2",
-  storageBucket: "",
+  storageBucket: "camara-377f2.appspot.com",
   messagingSenderId: "259632457956"
 
 }
@@ -31,20 +38,27 @@ export const config = {
   declarations: [
     MyApp,
     HomePage,
-    GpsPage
+    GpsPage,
+    StartPage,
+    BleSerialPage,
+    ColorPickPage
   ],
   imports: [
     BrowserModule,
     IonicModule.forRoot(MyApp),
     AngularFireDatabaseModule,
     AngularFireModule.initializeApp(config),
-     AngularFireAuthModule
+     AngularFireAuthModule,
+     ColorPickerModule
   ],
   bootstrap: [IonicApp],
   entryComponents: [
     MyApp,
     HomePage,
-    GpsPage
+    GpsPage,
+    StartPage,
+    BleSerialPage,
+    ColorPickPage
   ],
   providers: [
     StatusBar,
@@ -52,6 +66,8 @@ export const config = {
     Camera,
     Geolocation,
     GoogleMaps,
+    LocalNotifications,
+    BluetoothSerial,
     { provide: ErrorHandler, useClass: IonicErrorHandler }
   ]
 })
